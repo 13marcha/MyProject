@@ -1,0 +1,133 @@
+/* IMPORT */
+    /* Fonts type normal*/
+@font-face{
+    font-family: ptSans;
+    src: url("ptSans.ttf")
+}
+    /* Font type bold */
+@font-face{
+    font-family: ptSansBold;
+    src: url("ptSansBold.ttf")
+}
+
+/* Estructura web */
+
+body{
+    font-family: ptSans;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:"header header header"
+                        "content content sidebar"
+                        "content content sidebar"
+                        "footer footer footer";
+}
+
+.header{
+    grid-area: header;
+}
+
+.main{
+    grid-area: content;
+}
+
+.sidebar{
+    grid-area: sidebar;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+.menu{
+    grid-area: nav;
+}
+
+@media screen and (max-width: 672px){
+    .container{
+        grid-template-areas:"header header header"
+                            "content content content"
+                            "sidebar sidebar sidebar"
+                            "footer footer footer";
+    }
+}
+
+.menu{
+    width: 100%;
+    background: rgb(22, 13, 13);
+    display: grid;
+    grid-template-columns: 100px 2fr;
+    grid-template-rows: 1fr;
+}
+
+.menu__container, .menu__logo{
+    justify-self: end;
+    align-self: center;
+}
+
+.menu__container{
+    margin-right: 5%;
+}
+
+.menu__content a{
+    font-size: 110%;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu__content{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 130%;
+}
+
+.menu__others{
+    position:relative;
+}
+
+.menu__container-submenu{
+    display: grid;
+    position: absolute;
+    right: -10px;
+    top: 103%;
+    background: #ececec;
+    color: #a3a3a3;
+    width: 900%;
+    height: 400%;
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5%;
+    visibility: hidden;
+
+}
+
+.menu__container-submenu a{
+    color: #afafaf;
+    border-bottom: 1px #a3a3a3 solid;
+}
+
+.menu__container-submenu *{
+    margin: 0;
+    padding: 0;
+}
+
+.menu__others:hover .menu__container-submenu{
+    visibility: visible;
+    transition: 1s;
+}
+
+.menu__logo{
+    position: relative;
+    left: 5%;
+    font-size: 150%;
+    color: #ffffff;
+    padding-left: 100px !important;
+}
